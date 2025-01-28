@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "f05a42c9-8433-4551-933c-b879b5292342",
+		"name": "Test create/delete Training",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24949621"
+	},
+	"item": [
+		{
+			"name": "Login Kathleen.Carr",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Kathleen.Carr",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "7545019305",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8089/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get trainer info Kathleen.Carr",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lciIsInVzZXJJRCI6IjIiLCJzdWIiOiJLYXRobGVlbi5DYXJyIiwiaWF0IjoxNzM2MDc1MjY1LCJleHAiOjE3MzYwNzU4NjV9.8Fe6hLlKzv4_uUlIqSMOXnzXmqazCG7Rruar5BnoNo0"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Kathleen.Carr",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "7545019305",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8089/trainer?username=Kathleen.Carr",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"trainer"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Kathleen.Carr"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Dave.Batista",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Dave.Batista",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234567895",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8089/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Dave.Batista",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get trainee info Dave.Batista",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lZSIsInVzZXJJRCI6IjYiLCJzdWIiOiJEYXZlLkJhdGlzdGEiLCJpYXQiOjE3MzYwNzUyOTYsImV4cCI6MTczNjA3NTg5Nn0.PzQJ9_YBLMHQeXi5bZQl0q5ICvs6cVjgxheXAHMvDyk"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Dave.Batista",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "1234567895",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8089/trainee?username=Dave.Batista",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"trainee"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Dave.Batista"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Trainee Dave.Batista Trainings List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lZSIsInVzZXJJRCI6IjYiLCJzdWIiOiJEYXZlLkJhdGlzdGEiLCJpYXQiOjE3MzYwNzYxNjksImV4cCI6MTczNjA3Njc2OX0.i2TLUKkhLm5lgNsaiV3VwL8C9pQTDUg7Bv2-XG8heAI"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/trainee/trainings?username=Dave.Batista",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"trainee",
+						"trainings"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Dave.Batista"
+						},
+						{
+							"key": "fromDate",
+							"value": "2024-10-21",
+							"disabled": true
+						},
+						{
+							"key": "toDate",
+							"value": "2024-11-21",
+							"disabled": true
+						},
+						{
+							"key": "trainerName",
+							"value": "Ward",
+							"disabled": true
+						},
+						{
+							"key": "trainingType",
+							"value": "yoga",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create training",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lZSIsInVzZXJJRCI6IjYiLCJzdWIiOiJEYXZlLkJhdGlzdGEiLCJpYXQiOjE3MzYwNzUyOTYsImV4cCI6MTczNjA3NTg5Nn0.PzQJ9_YBLMHQeXi5bZQl0q5ICvs6cVjgxheXAHMvDyk"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"trainingName\": \"box\",\r\n        \"trainingDay\": \"2025-12-22\",\r\n        \"trainingType\": \"fitness\",\r\n        \"trainingDuration\": 120,\r\n        \"trainerUsername\": \"Kathleen.Carr\",\r\n        \"traineeUsername\": \"Dave.Batista\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8089/training"
+			},
+			"response": []
+		},
+		{
+			"name": "Create training",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lZSIsInVzZXJJRCI6IjYiLCJzdWIiOiJEYXZlLkJhdGlzdGEiLCJpYXQiOjE3MzYwNzU3MzMsImV4cCI6MTczNjA3NjMzM30.GD48VTJNB_dpm9Ouxdupk-mQKk3bS2zwZKlc-4IFYsY"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"trainingName\": \"Dynamic stretch\",\r\n        \"trainingDay\": \"2022-10-12\",\r\n        \"trainingType\": \"stretching\",\r\n        \"trainingDuration\": 50,\r\n        \"trainerUsername\": \"Frazier.Richards\",\r\n        \"traineeUsername\": \"Dave.Batista\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8089/training"
+			},
+			"response": []
+		},
+		{
+			"name": "Create training",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lZSIsInVzZXJJRCI6IjYiLCJzdWIiOiJEYXZlLkJhdGlzdGEiLCJpYXQiOjE3MzYwNzU3MzMsImV4cCI6MTczNjA3NjMzM30.GD48VTJNB_dpm9Ouxdupk-mQKk3bS2zwZKlc-4IFYsY"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"trainingName\": \"hatha\",\r\n        \"trainingDay\": \"2023-10-02\",\r\n        \"trainingType\": \"yoga\",\r\n        \"trainingDuration\": 90,\r\n        \"trainerUsername\": \"Ward.Mejia\",\r\n        \"traineeUsername\": \"Dave.Batista\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8089/training"
+			},
+			"response": []
+		},
+		{
+			"name": "Create training",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lZSIsInVzZXJJRCI6IjYiLCJzdWIiOiJEYXZlLkJhdGlzdGEiLCJpYXQiOjE3MzYwNzU3MzMsImV4cCI6MTczNjA3NjMzM30.GD48VTJNB_dpm9Ouxdupk-mQKk3bS2zwZKlc-4IFYsY"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"trainingName\": \"resistance bands\",\r\n        \"trainingDay\": \"2023-01-22\",\r\n        \"trainingType\": \"resistance\",\r\n        \"trainingDuration\": 45,\r\n        \"trainerUsername\": \"Myrna.Estrada\",\r\n        \"traineeUsername\": \"Dave.Batista\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8089/training"
+			},
+			"response": []
+		},
+		{
+			"name": "Create training",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lZSIsInVzZXJJRCI6IjYiLCJzdWIiOiJEYXZlLkJhdGlzdGEiLCJpYXQiOjE3MzYwNzU3MzMsImV4cCI6MTczNjA3NjMzM30.GD48VTJNB_dpm9Ouxdupk-mQKk3bS2zwZKlc-4IFYsY"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"trainingName\": \"resistance bands\",\r\n        \"trainingDay\": \"2023-01-22\",\r\n        \"trainingType\": \"resistance\",\r\n        \"trainingDuration\": 45,\r\n        \"trainerUsername\": \"Myrna.Estrada2\",\r\n        \"traineeUsername\": \"Dave.Batista\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8089/training"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete training",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lZSIsInVzZXJJRCI6IjYiLCJzdWIiOiJEYXZlLkJhdGlzdGEiLCJpYXQiOjE3MzYwNzYxNjksImV4cCI6MTczNjA3Njc2OX0.i2TLUKkhLm5lgNsaiV3VwL8C9pQTDUg7Bv2-XG8heAI"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8089/training/9"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete trainee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lZSIsInVzZXJJRCI6IjYiLCJzdWIiOiJEYXZlLkJhdGlzdGEiLCJpYXQiOjE3MzYwNzYxNjksImV4cCI6MTczNjA3Njc2OX0.i2TLUKkhLm5lgNsaiV3VwL8C9pQTDUg7Bv2-XG8heAI"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\": \"Anton\",\r\n    \"lastname\": \"Huge\",\r\n    \"dateOfBirth\": \"1982-10-03\",\r\n    \"address\": \"15 Michael Road, Springville, Verginia, 23399\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/trainee?username=Dave.Batista",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"trainee"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Dave.Batista"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

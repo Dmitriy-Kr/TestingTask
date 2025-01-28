@@ -1,0 +1,81 @@
+server:
+  port: '8089'
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        cloud:
+          gateway:
+            route:
+              RouteDefinitionLocator: INFO
+          nodeValue: TRACE
+
+spring:
+  application:
+    name: api-gateway
+## basic module route
+  cloud:
+    gateway:
+      routes:
+        - id: basic_route_register
+          uri: lb://basic
+          predicates:
+            - Path=/trainee,/trainer
+            - Method=POST
+
+        - id: basic_route
+          uri: lb://basic
+          predicates:
+            - Path=/trainee/**,/trainer/**,/training/**,/training-type/**,/user/**
+          filters:
+            - JwtFilter
+            - name: CircuitBreaker
+              args:
+                name: appCircuitBreaker
+                fallbackUri: forward:/fallback
+
+        - id: basic_route_login
+          uri: lb://basic
+          predicates:
+            - Path=/login
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: appCircuitBreaker
+                fallbackUri: forward:/fallback
+                statusCodes:
+                  - 500
+                  - "NOT_FOUND"
+## workload module route
+        - id: workload_route
+          uri: lb://workload
+          predicates:
+            - Path=/workload/**
+          filters:
+            - JwtFilter
+            - name: CircuitBreaker
+              args:
+                name: appCircuitBreaker
+                fallbackUri: forward:/fallback
+
+application:
+  security:
+    jwt:
+      secret-key: HWgDygvbmqPZn8UOcGXhPBPp2YcfVr9n6azNdYZ9mbM
+
+resilience4j.circuitbreaker:
+  instances:
+    appCircuitBreaker:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      failureRateThreshold: 70
+      waitDurationInOpenState: 5s
+      permittedNumberOfCallsInHalfOpenState: 3
+      minimumNumberOfCalls: 5
