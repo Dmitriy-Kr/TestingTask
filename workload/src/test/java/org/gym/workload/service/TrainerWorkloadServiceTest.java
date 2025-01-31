@@ -44,10 +44,7 @@ class TrainerWorkloadServiceTest {
         Trainer trainer = new Trainer();
         Year trainingYear = new Year();
         trainingYear.setYearNumber(year);
-//        Month trainingMonth = new Month();
-//        trainingMonth.setMonthNumber(month);
-//        trainingMonth.setTrainingSummaryDuration(120);
-//        trainingYear.setDurationByMonths(List.of(trainingMonth));
+        trainingYear.setDurationByMonths(new int[]{0,0,0,0,0,0,0,0,0,0,0,120});
         trainer.setYears(List.of(trainingYear));
 
         when(repository.findByUsername(username)).thenReturn(Optional.of(trainer));
@@ -112,10 +109,7 @@ class TrainerWorkloadServiceTest {
         Trainer trainer = new Trainer();
         Year year = new Year();
         year.setYearNumber(2024);
-//        Month month = new Month();
-//        month.setMonthNumber(12);
-//        month.setTrainingSummaryDuration(60);
-//        year.setDurationByMonths(List.of(month));
+        year.setDurationByMonths(new int[]{0,0,0,0,0,0,0,0,0,0,0,60});
         trainer.setYears(List.of(year));
         when(repository.findByUsername("trainer1")).thenReturn(Optional.of(trainer));
 
@@ -127,6 +121,6 @@ class TrainerWorkloadServiceTest {
         verify(repository).save(captor.capture());
 
         Trainer savedTrainer = captor.getValue();
-//        assertEquals(30, savedTrainer.getYears().get(0).getDurationByMonths().get(0).getTrainingSummaryDuration());
+        assertEquals(30, savedTrainer.getYears().get(0).getDurationByMonths()[11]);
     }
 }

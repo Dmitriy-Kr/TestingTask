@@ -60,7 +60,7 @@ public class TrainerWorkloadService {
 
         return trainer.map(value -> value.getYears().stream()
                 .filter(y -> y.getYearNumber() == year)
-                .findFirst().orElse(new Year()).getDurationByMonths()[month]).orElse(-100);
+                .findFirst().orElse(new Year()).getDurationByMonths()[month - 1]).orElse(-100);
         // need throwing exception here?
     }
 

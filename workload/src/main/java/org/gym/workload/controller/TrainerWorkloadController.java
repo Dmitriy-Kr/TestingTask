@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.DateTimeException;
 import java.time.Month;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,6 +56,11 @@ public class TrainerWorkloadController {
 
     @ExceptionHandler(ServiceException.class)
     public ResponseEntity<String> handleServiceExceptions(ServiceException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
+
+    @ExceptionHandler(DateTimeException.class)
+    public ResponseEntity<String> handleDateTimeExceptions(DateTimeException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
