@@ -5,6 +5,9 @@ public class TraineeCreatedDto {
     private String password;
     private String token;
 
+    public TraineeCreatedDto() {
+    }
+
     public TraineeCreatedDto(String username, String password, String token) {
         this.username = username;
         this.password = password;

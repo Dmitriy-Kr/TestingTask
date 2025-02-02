@@ -7,22 +7,12 @@ import org.gym.workload.message.WorkloadMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.jms.core.JmsTemplate;
-import org.testcontainers.activemq.ActiveMQContainer;
-import org.testcontainers.containers.MongoDBContainer;
-import org.testcontainers.junit.jupiter.Container;
 
 import java.sql.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestWorkloadSteps {
-
-    @Container
-    static MongoDBContainer mongoDBContainer =
-            new MongoDBContainer("mongo:5.0.10").withExposedPorts(27017);
-
-    @Container
-    ActiveMQContainer activemq = new ActiveMQContainer("apache/activemq-classic:5.18.3");
 
     @Autowired
     private TestRestTemplate restTemplate;

@@ -5,6 +5,9 @@ public class TrainerCreatedDto {
     private String password;
     private String token;
 
+    public TrainerCreatedDto() {
+    }
+
     public TrainerCreatedDto(String username, String password, String token) {
         this.username = username;
         this.password = password;
@@ -33,5 +36,14 @@ public class TrainerCreatedDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "TrainerCreatedDto{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", token='" + token + '\'' +
+                '}';
     }
 }
