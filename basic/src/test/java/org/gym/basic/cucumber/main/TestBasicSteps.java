@@ -268,6 +268,53 @@ public class TestBasicSteps {
 
     }
 
+    @When("Updating trainer login: username - {string}, password - {string}")
+    public void updatingTrainerLoginUsernamePassword(String username, String password) {
+
+        form = new LinkedMultiValueMap<>();
+        form.set("username", username);
+        form.set("password", password);
+
+        ResponseEntity<String> responseEntity = restTemplate.postForEntity(
+                "/login",
+                new HttpEntity<>(form, new HttpHeaders()),
+                String.class);
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        assertThat(responseEntity.hasBody()).isTrue();
+
+        assertThat(responseEntity.getBody().startsWith("JWTToken:")).isTrue();
+
+        token = responseEntity.getBody().substring("JWTToken: ".length());
+
+    }
+
+    @Then("Update trainer information")
+    public void updateTrainerInformation() {
+
+        trainerDto = new TrainerDto();
+        trainerDto.setFirstname("Coleman");
+        trainerDto.setLastname("new Yates");
+        trainerDto.setSpecialization("yoga");
+        trainerDto.setActive(true);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer " + token);
+
+        ResponseEntity<TrainerDto> responseEntity =
+                restTemplate.exchange("/trainer/3", HttpMethod.PUT, new HttpEntity<>(trainerDto, headers), TrainerDto.class);
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        assertThat(responseEntity.hasBody()).isTrue();
+
+        assertThat(responseEntity.getBody().getUsername()).isEqualTo("Coleman.Yates");
+
+        assertThat(responseEntity.getBody().getLastname()).isEqualTo("new Yates");
+
+    }
+
     private void delay() {
         try {
             Thread.sleep(1000);
@@ -275,4 +322,5 @@ public class TestBasicSteps {
             throw new RuntimeException(e);
         }
     }
+
 }

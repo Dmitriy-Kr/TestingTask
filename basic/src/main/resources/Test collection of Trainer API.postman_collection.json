@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "edb6fde9-190e-4473-9a68-b1c2373aa541",
+		"_postman_id": "6899d6e1-76fc-454f-80f7-c90bc4661144",
 		"name": "Test collection of Trainer API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "24949621"
@@ -26,38 +26,25 @@
 		},
 		{
 			"name": "Login Coleman.Yates",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"firstname\": \"Denis\",\r\n    \"lastname\": \"Rodman\",\r\n    \"specialization\": \"yoga\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/trainer?username=Coleman.Yates",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"trainer"
-					],
-					"query": [
+					"mode": "formdata",
+					"formdata": [
 						{
 							"key": "username",
-							"value": "Coleman.Yates"
+							"value": "Coleman.Yates",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "4415125129",
+							"type": "text"
 						}
 					]
-				}
+				},
+				"url": "http://localhost:8089/login"
 			},
 			"response": []
 		},
@@ -67,6 +54,12 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lciIsInVzZXJJRCI6IjMiLCJzdWIiOiJDb2xlbWFuLllhdGVzIiwiaWF0IjoxNzM4NTkyMjc4LCJleHAiOjE3Mzg1OTI4Nzh9.eaeQoNQgPBF9EIS3gIwCYRLsvV2vANFa8XOcnS5OqvI"
+					}
+				},
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -79,12 +72,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/trainer?username=Coleman.Yates",
+					"raw": "http://localhost:8089/trainer?username=Coleman.Yates",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8089",
 					"path": [
 						"trainer"
 					],
@@ -100,11 +93,14 @@
 		},
 		{
 			"name": "Update trainer Coleman.Yates",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoidHJhaW5lciIsInVzZXJJRCI6IjMiLCJzdWIiOiJDb2xlbWFuLllhdGVzIiwiaWF0IjoxNzM4NTkyMjc4LCJleHAiOjE3Mzg1OTI4Nzh9.eaeQoNQgPBF9EIS3gIwCYRLsvV2vANFa8XOcnS5OqvI"
+					}
+				},
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -115,23 +111,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:8080/trainer?username=Coleman.Yates",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"trainer"
-					],
-					"query": [
-						{
-							"key": "username",
-							"value": "Coleman.Yates"
-						}
-					]
-				}
+				"url": "http://localhost:8089/trainer/3"
 			},
 			"response": []
 		},

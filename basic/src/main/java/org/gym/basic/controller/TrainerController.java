@@ -63,9 +63,8 @@ public class TrainerController {
     @PutMapping("/{id}")
     @ResponseBody
     @Operation(summary = "Update Trainer Profile")
-    public TrainerDto update(@PathVariable Long id, @RequestBody TrainerDto trainerDto) throws ServiceException, InvalidDataException {
+    public TrainerDto update(@PathVariable("id") Long id, @RequestBody TrainerDto trainerDto) throws ServiceException, InvalidDataException {
 
-        validateLogin(trainerDto.getUsername());
         validateName(trainerDto.getFirstname());
         validateName(trainerDto.getLastname());
         Trainer trainer = mapToTrainer(trainerDto);

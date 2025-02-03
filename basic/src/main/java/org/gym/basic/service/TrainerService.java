@@ -113,7 +113,6 @@ public class TrainerService {
 
             trainerFromDB.get().getUser().setFirstname(trainer.getUser().getFirstname());
             trainerFromDB.get().getUser().setLastname(trainer.getUser().getLastname());
-            trainerFromDB.get().getUser().setIsActive(trainer.getUser().isActive());
 
             if (trainer.getSpecialization() != null) {
                 trainerFromDB.get()

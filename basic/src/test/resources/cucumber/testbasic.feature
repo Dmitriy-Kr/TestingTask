@@ -13,6 +13,10 @@ Feature: Test basic
     When Existing trainer login: username - "Coleman.Yates", password - "4415125129"
     Then Get trainer information by username "Anton.Huge"
 
+  Scenario: Update Trainer information
+    When Updating trainer login: username - "Coleman.Yates", password - "4415125129"
+    Then Update trainer information
+
   Scenario: Create new Trainee
     When Trainee enters valid data: firstname - "Anna", lastname - "Green", date of birth - "1982-10-03", address - "15 Michael Road, Springville, Verginia, 23399"
     Then The basic service sends response with Trainee username, password and token
