@@ -2,7 +2,7 @@ package org.gym.basic.utility;
 
 import org.gym.basic.dto.*;
 import org.gym.basic.entity.*;
-import org.gym.workload.dto.WorkloadRequest;
+import org.gym.basic.dto.WorkloadRequest;
 
 import java.util.stream.Collectors;
 

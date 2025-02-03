@@ -12,7 +12,7 @@ import org.gym.basic.repository.TraineeRepository;
 import org.gym.basic.repository.TrainerRepository;
 import org.gym.basic.repository.TrainingRepository;
 import org.gym.basic.repository.UserRepository;
-import org.gym.workload.dto.WorkloadRequest;
+//import org.gym.workload.dto.WorkloadRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jms.JmsException;

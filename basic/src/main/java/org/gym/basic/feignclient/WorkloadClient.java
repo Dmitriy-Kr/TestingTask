@@ -1,6 +1,6 @@
 package org.gym.basic.feignclient;
 
-import org.gym.workload.dto.WorkloadRequest;
+import org.gym.basic.dto.WorkloadRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

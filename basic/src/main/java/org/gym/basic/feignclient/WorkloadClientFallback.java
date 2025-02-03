@@ -1,6 +1,6 @@
 package org.gym.basic.feignclient;
 
-import org.gym.workload.dto.WorkloadRequest;
+import org.gym.basic.dto.WorkloadRequest;
 import org.springframework.stereotype.Component;
 
 @Component

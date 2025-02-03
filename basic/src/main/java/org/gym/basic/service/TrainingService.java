@@ -5,7 +5,6 @@ import org.gym.basic.entity.Training;
 import org.gym.basic.feignclient.WorkloadClient;
 import org.gym.basic.message.WorkloadMessage;
 import org.gym.basic.repository.TrainingRepository;
-import org.gym.workload.dto.WorkloadRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jms.JmsException;
@@ -15,8 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.time.LocalDate;
-
-import static org.gym.basic.utility.MappingUtils.createRequest;
 
 @Service
 @Transactional(readOnly = true)
